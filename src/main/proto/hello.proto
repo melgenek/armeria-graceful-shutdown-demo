@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package demo.org;
+option java_package = "org.demo";
+
+service HelloService {
+  rpc Hello (HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+  string value = 1;
+}
+
+message HelloReply {
+  string value = 1;
+}
