@@ -53,7 +53,7 @@ public class ArmeriaToGrpcJavaMain {
                         Endpoint.of("127.0.0.1", 3700)
                 )
                 .responseTimeout(Duration.ofSeconds(120))
-                .factory(ClientFactory.builder().tlsNoVerify().build())
+                .factory(ClientFactory.builder().tlsNoVerify().idleTimeout(Duration.ofDays(1)).build())
                 .build(HelloServiceGrpc.HelloServiceFutureStub.class);
 
         stopServerAfterBeforeTheRequestEnd(canStop, server);
